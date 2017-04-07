@@ -12,9 +12,11 @@
 		681A6BA11E97F6DB00B6C2F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681A6B9F1E97F6DB00B6C2F7 /* Main.storyboard */; };
 		681A6BA31E97F6DB00B6C2F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 681A6BA21E97F6DB00B6C2F7 /* Assets.xcassets */; };
 		681A6BA61E97F6DB00B6C2F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 681A6BA41E97F6DB00B6C2F7 /* LaunchScreen.storyboard */; };
+		88CD068D4832543EAED6C6C2 /* Pods_OnboardingSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDE7BE1E0E3E1B2CE049B168 /* Pods_OnboardingSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		064BCA0334A191357F11F975 /* Pods-OnboardingSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnboardingSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnboardingSwift/Pods-OnboardingSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		681A6B981E97F6DB00B6C2F7 /* OnboardingSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnboardingSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		681A6B9B1E97F6DB00B6C2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		681A6B9D1E97F6DB00B6C2F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		681A6BA21E97F6DB00B6C2F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		681A6BA51E97F6DB00B6C2F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		681A6BA71E97F6DB00B6C2F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		936361029CF43D563C4A5509 /* Pods-OnboardingSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnboardingSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnboardingSwift/Pods-OnboardingSwift.release.xcconfig"; sourceTree = "<group>"; };
+		CDE7BE1E0E3E1B2CE049B168 /* Pods_OnboardingSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnboardingSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88CD068D4832543EAED6C6C2 /* Pods_OnboardingSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494E18690C2A087D47251805 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDE7BE1E0E3E1B2CE049B168 /* Pods_OnboardingSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		681A6B8F1E97F6DA00B6C2F7 = {
 			isa = PBXGroup;
 			children = (
 				681A6B9A1E97F6DB00B6C2F7 /* OnboardingSwift */,
 				681A6B991E97F6DB00B6C2F7 /* Products */,
+				92D0903F0EA4A8D26C1E8029 /* Pods */,
+				494E18690C2A087D47251805 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +79,15 @@
 			path = OnboardingSwift;
 			sourceTree = "<group>";
 		};
+		92D0903F0EA4A8D26C1E8029 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				064BCA0334A191357F11F975 /* Pods-OnboardingSwift.debug.xcconfig */,
+				936361029CF43D563C4A5509 /* Pods-OnboardingSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 681A6BAA1E97F6DB00B6C2F7 /* Build configuration list for PBXNativeTarget "OnboardingSwift" */;
 			buildPhases = (
+				47DC9F0B88F468A06DA963C2 /* [CP] Check Pods Manifest.lock */,
 				681A6B941E97F6DB00B6C2F7 /* Sources */,
 				681A6B951E97F6DB00B6C2F7 /* Frameworks */,
 				681A6B961E97F6DB00B6C2F7 /* Resources */,
+				EE1AD3789FD0629C490A9521 /* [CP] Embed Pods Frameworks */,
+				925D532178FCF8160D175CBF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47DC9F0B88F468A06DA963C2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		925D532178FCF8160D175CBF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnboardingSwift/Pods-OnboardingSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE1AD3789FD0629C490A9521 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnboardingSwift/Pods-OnboardingSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		681A6B941E97F6DB00B6C2F7 /* Sources */ = {
@@ -260,6 +335,7 @@
 		};
 		681A6BAB1E97F6DB00B6C2F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 064BCA0334A191357F11F975 /* Pods-OnboardingSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OnboardingSwift/Info.plist;
@@ -272,6 +348,7 @@
 		};
 		681A6BAC1E97F6DB00B6C2F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 936361029CF43D563C4A5509 /* Pods-OnboardingSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = OnboardingSwift/Info.plist;

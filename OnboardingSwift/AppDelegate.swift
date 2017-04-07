@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Onboard
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let defaults = UserDefaults.standard
+        let userHasOnboarded =  defaults.bool(forKey: "userHasOnboarded")
+        if userHasOnboarded == true {
+            self.setupNormalRootViewController()
+        }
+        else {
+            
+            self.window?.rootViewController = self.generateStandardOnboardingVC()
+            
+        }
         // Override point for customization after application launch.
         return true
     }
@@ -40,6 +53,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    func generateStandardOnboardingVC () -> OnboardingViewController {
+        
+        // Initialize onboarding view controller
+        var onboardingVC = OnboardingViewController()
+        
+        // Create slides
+        let firstPage = OnboardingContentViewController.content(withTitle: "Welcome To The App!", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut.", image: UIImage(named: "image1"), buttonText: nil, action: nil)
+        
+        let secondPage = OnboardingContentViewController.content(withTitle: "Step 1", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut.", image: UIImage(named: "image2"), buttonText: nil, action: nil)
+        
+        let thirdPage = OnboardingContentViewController.content(withTitle: "Step 2:", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut.", image: UIImage(named: "image3"), buttonText: nil, action: nil)
+        
+        let fourthPage = OnboardingContentViewController.content(withTitle: "Step 3", body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut.", image: UIImage(named: "image4"), buttonText: nil, action: self.handleOnboardingCompletion)
+        
+        // Define onboarding view controller properties
+        onboardingVC = OnboardingViewController.onboard(withBackgroundImage: UIImage(named: "purple"), contents: [firstPage, secondPage, thirdPage, fourthPage])
+        onboardingVC.shouldFadeTransitions = true
+        onboardingVC.shouldMaskBackground = false
+        onboardingVC.shouldBlurBackground = false
+        onboardingVC.fadePageControlOnLastPage = true
+        onboardingVC.pageControl.pageIndicatorTintColor = UIColor.darkGray
+        onboardingVC.pageControl.currentPageIndicatorTintColor = UIColor.white
+        onboardingVC.skipButton.setTitleColor(UIColor.white, for: .normal)
+        onboardingVC.allowSkipping = true
+        onboardingVC.fadeSkipButtonOnLastPage = true
+        
+        onboardingVC.skipHandler = {
+            self.skip()
+        }
+        
+        return onboardingVC
+        
+    }
+    func handleOnboardingCompletion (){
+        self.setupNormalRootViewController()
+    }
+    func setupNormalRootViewController (){
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "mainVC") as! UIViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "userHasOnboarded")
+        
+    }
+    func skip (){
+        self.setupNormalRootViewController()
+        
+    }
+    
+    
+
 
 
 }
